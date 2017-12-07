@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>welcome user</title>
+
+	<link rel="stylesheet" type="text/css" href="helloCSS.css">
+	<script LANGUAGE="JavaScript">
+		function getParams(){
+			var idx = document.URL.indexOf('?');
+			var params = new Array();
+			if (idx != -1) {
+				var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+				for (var i=0; i<pairs.length; i++){
+					nameVal = pairs[i].split('=');
+					params[nameVal[0]] = nameVal[1];
+				}
+			}
+			return params;
+		}
+
+		params = getParams();
+		firstname = unescape(params["fname"]);
+		lastname = unescape(params["lname"]);
+		gender = unescape(params["gender"]);
+		year = unescape(params["year"]);
+		month = unescape(params["month"]);
+		date = unescape(params["date"]);
+		city = unescape(params["city"]);
+		phone = unescape(params["phone"]);
+		pin = unescape(params["pin"]);
+		document.write("<div id='helloDiv' align='center'>");
+		document.write("<p>firstname = " + firstname + "</p><br>"); 
+		document.write("<p>lastname = " + lastname + "</p><br>");
+		document.write("<p>gender = " + gender + "</p><br>");
+		document.write("<p style='display:inline'>DOB = " + year + "</p><p style='display:inline'>" + month + "</p><p style='display:inline'> " + date + "</p><br>");
+		document.write("<p>city = " + city + "</p><br>");
+		document.write("<p>phone no = " + phone + "</p><br>");
+		document.write("<p>pin = " + pin + "</p><br>");
+		document.write("</div>");
+	</script>
+</head>
+</html>
